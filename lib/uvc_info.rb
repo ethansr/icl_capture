@@ -1,14 +1,27 @@
 class UVCInfo
 
-  def devices
+  def self.devices
+    extract_device_information
+  end
+
+
+  def self.extract_device_information
+    device_list = uvc_list.lines.find_all { |line| line.match /video/ }
+
+    device_list.collect { |line| parse_device_line line }
+  end
+
+  def self.parse_device_line device_string
+    match = device_string.match /(video\d*)\s*(.*)(\(.*\))/
+     
+      { :file_system_device => match[1],
+        :label => match[2].strip,
+        :usb_id => match[3].strip
+      }
 
   end
 
-  def uvc_list
-    "
-[libwebcam] Unknown V4L2 private control ID encountered: 0x0A046D04 (V4L2_CID_PRIVATE_BASE + 33844484)
-Listing available devices:
-  video0   UVC Camera (046d:0991)
-    "     
+  def self.uvc_list
+    `uvcdynctrl -l` 
   end
 end
