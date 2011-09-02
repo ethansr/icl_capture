@@ -1,6 +1,6 @@
 require 'lib/capture_buddy'
 
-buddy = CameraBuddy.new
+buddy = CaptureBuddy.new
 
 command << "guvcview"
 command << "-d #{buddy.video_device[:label]}"
