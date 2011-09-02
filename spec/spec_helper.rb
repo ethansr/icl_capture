@@ -1,3 +1,8 @@
+
+def stub_one_good_file_system
+  CaptureStorage.stub(:file_systems).and_return([{:path => '/media/capture_1', :free_space => 2700}])
+end
+
 def stub_no_uvc_devices
 UVCInfo.stub!(:uvc_list).and_return("Listing available devices:\nNo devices found.")
 end

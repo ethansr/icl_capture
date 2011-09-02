@@ -8,7 +8,7 @@ class CaptureStorage
     mounted_drives.collect do | drive |
       stat = Sys::Filesystem.stat(drive)
       {
-        :label => drive,
+        :path => drive,
         :free_space => free_space_for(stat),
         :stat => stat
       }
