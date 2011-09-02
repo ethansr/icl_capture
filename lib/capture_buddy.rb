@@ -13,6 +13,9 @@ class CaptureBuddy
 
   end
 
+  def capture_name
+     `hostname`.strip + '_' +  Time.now.utc.strftime("%m-%d-%Y_%H:%M:%S")
+  end
   def find_file_system
     @file_system = CaptureStorage.file_systems.find_all { |fs| fs[:free_space] > expected_size }.first
   end
