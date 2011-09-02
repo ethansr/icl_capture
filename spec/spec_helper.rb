@@ -16,6 +16,15 @@ Listing available devices:
 
 end
 
+def stub_two_uvc_devices
+
+ UVCInfo.stub!(:uvc_list).and_return( 
+  "
+Listing available devices:
+  video1   UVC Camera (046d:0821)
+  video0   HP Webcam-101  ")
+end
+
 def stub_two_audio_devices
           AudioInfo.stub!(:audio_device_list).and_return(
           "

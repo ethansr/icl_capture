@@ -12,12 +12,10 @@ class UVCInfo
   end
 
   def self.parse_device_line device_string
-    match = device_string.match /(video\d*)\s*(.*)(\(.*\))/
+    match = device_string.match /(video\d*)\s*(.*)/
      
       { :file_system_device => match[1],
-        :label => match[2].strip,
-        :usb_id => match[3].strip
-      }
+        :label => match[2].strip      }
 
   end
 

@@ -17,7 +17,7 @@ describe UVCInfo do
     end
     describe "If devices are present" do
       before :each do
-        stub_one_uvc_device
+        stub_two_uvc_devices
         @devices =  UVCInfo.devices
         @first_device = @devices.first
 
@@ -39,24 +39,18 @@ describe UVCInfo do
           @first_device.should have_key(:label)
         end
 
-        it "should have a USB device identifier" do
-          @first_device.should have_key(:usb_id)
-        end
 
       end
 
       describe "The first device" do
         it "should be 'video0'" do
-          @first_device[:file_system_device].should == 'video0'
+          @first_device[:file_system_device].should == 'video1'
         end
 
-        it "should be called 'UVC Camera'" do
-          @first_device[:label].should == 'UVC Camera'
+        it "should be called 'UVC Camera (046d:0821)'" do
+          @first_device[:label].should == 'UVC Camera (046d:0821)'
         end
 
-        it "should have the identifier '(046d:0991)'" do
-          @first_device[:usb_id].should == '(046d:0991)'
-        end
       end
     end
   end

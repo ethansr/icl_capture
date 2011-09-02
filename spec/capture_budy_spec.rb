@@ -6,7 +6,7 @@ describe CaptureBuddy do
 
   describe "create default camera buddy" do
     before :each do 
-      stub_one_uvc_device
+      stub_two_uvc_devices
       stub_two_audio_devices
       stub_one_good_file_system
       @buddy = CaptureBuddy.new
