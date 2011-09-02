@@ -1,3 +1,4 @@
+require 'spec/spec_helper.rb'
 require 'lib/uvc_info.rb'
 
 describe UVCInfo do
@@ -5,9 +6,7 @@ describe UVCInfo do
   describe "Listing Devices" do
     describe "If devices are not present" do
       before :each do
-        UVCInfo.stub!(:uvc_list).and_return("
-Listing available devices:
-No devices found.")
+        stub_no_uvc_devices
       end
 
       it "should return and empty array" do
@@ -18,12 +17,8 @@ No devices found.")
     end
     describe "If devices are present" do
       before :each do
-        UVCInfo.stub!(:uvc_list).and_return(    "
-[libwebcam] Unknown V4L2 private control ID encountered: 0x0A046D04 (V4L2_CID_PRIVATE_BASE + 33844484)
-Listing available devices:
-  video0   UVC Camera (046d:0991)
-    ")
-    @devices =  UVCInfo.devices
+        stub_one_uvc_device
+        @devices =  UVCInfo.devices
         @first_device = @devices.first
 
       end

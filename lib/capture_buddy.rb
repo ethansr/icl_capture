@@ -1,5 +1,7 @@
 require 'rubygems'
 require 'sys/filesystem'
+require 'lib/uvc_info.rb'
+require 'lib/audio_info.rb'
 
 class CaptureBuddy
 
@@ -27,30 +29,14 @@ class CaptureBuddy
     250
   end
 
-  def list_video_devices
-    command_results = `uvcdynctrl -l`
-    lines = command_results.lines
-    lines.collect do | line |
-      line.split()
-    end
-  end
-
   def find_uvc_device
-    @video_device = list_video_devices.find_all { |line| 
-    line[1].match(/UVC/) }[0][0]
-  end
-
-  def list_audio_devices
-    command_results = `arecord -l`
-    lines = command_results.lines
-    lines.collect do | line | 
-      line.split()
-    end
+    @video_device = UVCInfo.devices.find_all {|device| 
+    device[:label].match(/UVC/) }.first
   end
 
   def find_audio_device
-    @audio_device = list_audio_devices.find_all{ | line| 
-    line[3].match(/USB/) if !line[3].nil?}[0][1].gsub(':','')
+    @audio_device = AudioInfo.devices.find_all{ | device| 
+    device[:label].match(/USB/)}.first  
   end
 
 end

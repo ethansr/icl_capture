@@ -1,3 +1,4 @@
+require 'spec/spec_helper.rb'
 require 'lib/audio_info.rb'
 
 describe AudioInfo do
@@ -8,16 +9,7 @@ describe AudioInfo do
 
     describe "If devices are present" do
       before :each do
-        AudioInfo.stub!(:audio_device_list).and_return(
-          "
-**** List of CAPTURE Hardware Devices ****
-card 0: Intel [HDA Intel], device 0: ALC262 Analog [ALC262 Analog]
-  Subdevices: 1/1
-  Subdevice #0: subdevice #0
-card 1: U0x46d0x991 [USB Device 0x46d:0x991], device 0: USB Audio [USB Audio]
-  Subdevices: 1/1
-  Subdevice #0: subdevice #0
-          ")
+          stub_two_audio_devices
           @devices = AudioInfo.devices
       end
 
