@@ -1,4 +1,6 @@
-require 'lib/capture_buddy'
+$: << File.expand_path(File.dirname(__FILE__))
+require "lib/capture_buddy.rb"
+
 
 buddy = CaptureBuddy.new
 command = ""
