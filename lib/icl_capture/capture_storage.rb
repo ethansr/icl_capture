@@ -1,7 +1,3 @@
-require 'rubygems'
-require 'sys/filesystem'
-
-
 class CaptureStorage
 
   def self.file_systems

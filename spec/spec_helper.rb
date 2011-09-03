@@ -1,3 +1,4 @@
+require 'lib/icl_capture'
 
 def stub_one_good_file_system
   CaptureStorage.stub(:file_systems).and_return([{:path => '/media/capture_1', :free_space => 2700}])

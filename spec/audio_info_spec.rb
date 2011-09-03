@@ -1,5 +1,4 @@
 require 'spec/spec_helper.rb'
-require 'lib/audio_info.rb'
 
 describe AudioInfo do
   describe "Listing Devices" do

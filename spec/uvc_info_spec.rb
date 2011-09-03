@@ -1,5 +1,4 @@
 require 'spec/spec_helper.rb'
-require 'lib/uvc_info.rb'
 
 describe UVCInfo do
 

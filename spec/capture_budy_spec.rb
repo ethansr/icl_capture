@@ -1,5 +1,4 @@
 require 'spec/spec_helper.rb'
-require 'lib/capture_buddy'
 
 
 describe CaptureBuddy do

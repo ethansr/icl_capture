@@ -1,7 +1,3 @@
-require 'lib/uvc_info.rb'
-require 'lib/audio_info.rb'
-require 'lib/capture_storage.rb'
-
 class CaptureBuddy
 
   attr_accessor :video_device, :audio_device, :file_system
