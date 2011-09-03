@@ -8,10 +8,10 @@ Gem::Specification.new do |s|
   s.authors     = ["Ethan Soutar-Rau"]
   s.email       = ["ethan.soutar.rau@gmail.com"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{Utilities for assisting in capture from UVC cameras}
+  s.description = %q{Query available cameras and audio recording devices, find storage etc}
 
-  s.rubyforge_project = "icl_capture"
+  #s.rubyforge_project = "icl_capture"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
@@ -21,4 +21,5 @@ Gem::Specification.new do |s|
   # specify any dependencies here; for example:
   # s.add_development_dependency "rspec"
   # s.add_runtime_dependency "rest-client"
+  s.add_runtime_dependency "sys-filesystem"
 end
