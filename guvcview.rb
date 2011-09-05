@@ -1,5 +1,5 @@
 $: << File.expand_path(File.dirname(__FILE__))
-require "lib/capture_buddy.rb"
+require "lib/icl_capture.rb"
 
 
 buddy = CaptureBuddy.new
