@@ -1,5 +1,6 @@
 $: << File.expand_path(File.dirname(__FILE__))
-require "lib/icl_capture.rb"
+require 'rubygems'
+require "icl_capture"
 
 
 buddy = CaptureBuddy.new
